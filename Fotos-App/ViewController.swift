@@ -7,7 +7,8 @@
 
 import UIKit
 
-class GaleriaViewController: UIViewController
+class GaleriaViewController: UIViewController,UIImagePickerControllerDelegate,
+                             UINavigationControllerDelegate
 
 {
     @IBOutlet weak var SrcFoto: UIScrollView!
@@ -62,10 +63,17 @@ class GaleriaViewController: UIViewController
     func tomarFotoCamara(){
         let camara = UIImagePickerController()
         camara.sourceType = .photoLibrary
+        //en caso de tener iphone poder usar .camara
+        //camara.sourceType = .photoLibrary
+        camara.delegate = self
         present(camara, animated: true)
         
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        dismiss(animated: true)
+        print(info[.originalImage] as! UIImage)
+    }
     func seleccionarFotoGaleria(){
         
     }
