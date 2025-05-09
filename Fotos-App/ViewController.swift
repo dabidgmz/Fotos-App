@@ -61,7 +61,7 @@ class GaleriaViewController: UIViewController
     
     func tomarFotoCamara(){
         let camara = UIImagePickerController()
-        camara.sourceType = .camera
+        camara.sourceType = .photoLibrary
         present(camara, animated: true)
         
     }
