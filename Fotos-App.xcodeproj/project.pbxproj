@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F34CDAC2DD4172100CE732D /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F34CDAB2DD4172100CE732D /* PhotosUI.framework */; };
 		0F99A79B2DCADC0600F8BC1C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99A79A2DCADC0600F8BC1C /* AppDelegate.swift */; };
 		0F99A79D2DCADC0600F8BC1C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99A79C2DCADC0600F8BC1C /* SceneDelegate.swift */; };
 		0F99A79F2DCADC0600F8BC1C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F99A79E2DCADC0600F8BC1C /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0F34CDAB2DD4172100CE732D /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		0F99A7972DCADC0600F8BC1C /* Fotos-App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Fotos-App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0F99A79A2DCADC0600F8BC1C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0F99A79C2DCADC0600F8BC1C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -31,17 +33,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F34CDAC2DD4172100CE732D /* PhotosUI.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0F34CDAA2DD4172100CE732D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0F34CDAB2DD4172100CE732D /* PhotosUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		0F99A78E2DCADC0600F8BC1C = {
 			isa = PBXGroup;
 			children = (
 				0F99A7992DCADC0600F8BC1C /* Fotos-App */,
 				0F99A7982DCADC0600F8BC1C /* Products */,
+				0F34CDAA2DD4172100CE732D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

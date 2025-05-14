@@ -30,6 +30,9 @@
                                     <constraint firstItem="oRo-N9-Nlh" firstAttribute="leading" secondItem="fKz-eB-s85" secondAttribute="leading" id="SC3-hK-hhf"/>
                                     <constraint firstItem="oRo-N9-Nlh" firstAttribute="top" secondItem="fKz-eB-s85" secondAttribute="top" id="gNZ-j6-KIv"/>
                                 </constraints>
+                                <connections>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Pfj-co-gdQ"/>
+                                </connections>
                             </scrollView>
                             <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g5j-in-Azq">
                                 <rect key="frame" x="10" y="423" width="50" height="50"/>
