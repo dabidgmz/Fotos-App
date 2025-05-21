@@ -92,6 +92,7 @@
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="labelColor"/>
+                        <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="fKz-eB-s85" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="1o3-VC-w5S"/>
                             <constraint firstItem="g5j-in-Azq" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="10" id="3m7-Ow-IMX"/>
@@ -106,6 +107,9 @@
                             <constraint firstItem="g5j-in-Azq" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="awY-fT-d6R"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="fKz-eB-s85" secondAttribute="trailing" id="dX9-rj-3qH"/>
                         </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="PMu-mb-nRn" appends="YES" id="Zam-Qi-tF9"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="BtnAnterior" destination="g5j-in-Azq" id="U0N-AW-Ope"/>
@@ -116,6 +120,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="PMu-mb-nRn">
+                    <connections>
+                        <action selector="hacerZoom:" destination="BYZ-38-t0r" id="Cya-zQ-yTW"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="57.971014492753625" y="-2.0089285714285712"/>
         </scene>

@@ -72,6 +72,18 @@ class GaleriaViewController: UIViewController,UIImagePickerControllerDelegate,
         
     }
     
+    
+    
+    @IBAction func hacerZoom(_ sender: UITapGestureRecognizer) {
+        let nvEscala = SrcFoto.zoomScale * 2
+        let w = SrcFoto.frame.width / nvEscala
+        let h = SrcFoto.frame.width / nvEscala
+        let punto = sender.location(in: ImbFoto)
+        let x = punto.x - w/2
+        let y = punto.y - h/2
+        SrcFoto.zoom(to: CGRect(x: x, y: y, width: w, height: h), animated: true)
+    }
+    
     func tomarFotoCamara(){
         let camara = UIImagePickerController()
         camara.sourceType = .photoLibrary
@@ -122,7 +134,7 @@ class GaleriaViewController: UIViewController,UIImagePickerControllerDelegate,
     func seleccionarFotoGaleria(){
         
         var config = PHPickerConfiguration()
-        config.selectionLimit = 2
+        config.selectionLimit = 3
         config.filter = .images
         
         let galeria = PHPickerViewController(configuration: config)
@@ -131,17 +143,51 @@ class GaleriaViewController: UIViewController,UIImagePickerControllerDelegate,
     }
     
     func picker(_ picker: PHPickerViewController, didFinishPicking results: [PHPickerResult]) {
+        dismiss(animated: true)
+        var contador = 0
+        let limite = results.count
+        
         for resultado in results {
-            resultado.itemProvider.loadObject(ofClass: UIImage.self) { objeto, error in
-                print("Error al cargar imagen: \(String(describing: error?.localizedDescription))")
+            resultado.itemProvider.loadObject(ofClass: UIImage.self) {
+                objeto, error in
+                if let dato = objeto as? UIImage{
+                    self.foto.append(dato)
+                    contador += 1
+                }
+                else
+                {
+                    contador += 1
+                }
+                if contador == limite {
+                    self.indice = self.foto.count - 1
+                    DispatchQueue.main.async {
+                        self.setFotos()
+                    }
+                }
             }
         }
-        dismiss(animated: true)
+        
     }
 
     
     func guardarFotoGaleria(){
-        
+        if indice > -1 {
+            UIImageWriteToSavedPhotosAlbum(foto[indice], self, #selector(resGuardado), nil)
+        }
+    }
+    
+    @objc func resGuardado(_ img:UIImage?, _ error:NSError? , _ contexto:UnsafeMutableRawPointer?){
+        var msg  = ""
+        let er = error
+        if  (er != nil)  {
+            msg = "Ocurrio un error al guardar una imagen"
+        }
+        else {
+            msg = "Se guardo la imagen"
+        }
+        let alerta = UIAlertController(title: "aviso", message: msg, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "OK", style: .default)
+        present(alerta, animated: true)
     }
     
 }
